@@ -22,4 +22,4 @@ app.use(router);
 
 require('./routes/route.main.js')(router);
 
-server.listen(80);
+server.listen(process.env.PORT || 80);
