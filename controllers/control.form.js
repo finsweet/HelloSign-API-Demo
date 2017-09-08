@@ -98,7 +98,7 @@ module.exports = {
             name: data.company,
             test_mode:1,
             domain: 'hellosigndemo.finsweet.com',
-            custom_logo_file: '../resources/img/clear.png',
+            //custom_logo_file: '../resources/img/clear.png',
             callback_url: 'http://hellosigndemo.finsweet.com/callback',
             white_labeling_options: JSON.stringify(wlabel)
         };
