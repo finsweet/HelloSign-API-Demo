@@ -1,0 +1,95 @@
+<!--
+<div class="col-sm-8 container">
+    <!--<p class="main-text">
+        This is an example of what your dashboard can look like with our white label functionality in our API. Your developers can customize your dashboard in any way you'd like.
+        <br/><br/>
+        Click through the links under API Example in the left sidebar to demo our most popular HelloSign API features.
+    </p>
+<p class="main-text">
+    Use the navigation on the left to explore the possibilities of the HelloSign API.
+</p>
+<br/>
+<div class="btn btn-default pull-left cta" onclick="next()">Get Started</div>
+</div>
+
+<div class="modal fade" id="whitelabelingModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="body row">
+                    <br/>
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <h3>Whitelabeling</h3>
+                        <br/>
+                        <p>
+                            HelloSign lets YOUR brand shine through. Take a quick look around---notice the colors and branding? This is our white labeling in action. We allow our API users to customize with their branding, colors, and logos, giving you and your signers/users a seamless experience.
+                        </p>
+                        <br/>
+                        <p>
+                            HelloSign is the only eSignature provider offering this level of flexibility in customization.
+                        </p>
+                        <br/>
+                        <br/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+-->
+<div class=" welcome-body">
+    <div class=" welcome-content-top">
+        <div class="datetime">
+            <div class="today">Today,</div><br/>
+            <div class="date"></div><br/>
+            <div class="location">San Francisco, CA</div>
+        </div>
+        <div class="stats">
+            <div class="welcome-stats-block">
+                <div class="welcome-small-header">ORDERS</div>
+                <div class="welcome-stat-number">158</div>
+            </div>
+            <div class="stats-line-break"></div>
+            <div class="welcome-stats-block">
+                <div class="welcome-small-header">ACTIVE USERS</div>
+                <div class="welcome-stat-number">6,489</div>
+            </div>
+            <div class="stats-line-break"></div>
+            <div class="welcome-stats-block">
+                <div class="welcome-small-header">NEW SIGNUPS</div>
+                <div class="welcome-stat-number">405</div>
+            </div>
+        </div>
+    </div>
+
+    <div class=" welcome-content-bottom">
+        <div class="graph-container linechart">
+            <div class="chart-title line" style="flex-direction:column">
+                <div style="display:flex;flex-direction:row;justify-content: center;align-items: center">
+                    <div class="welcome-small-header with-num" style="margin-right:60px;">HOURLY ACTIVE USAGE</div>
+                    <div class="welcome-stat-number usage-time"> 2:07 PM <span class="welcome-small-header">(PST)</span></div>
+                </div>
+                <br/>
+                <img style="width:100%;" src="/img/line.jpg"/>
+            </div>
+        </div>
+        <div class="graph-container piechart">
+            <div class="chart-title pie" style="flex-direction:column">
+                <div class="welcome-small-header">DOCUMENTS PROCESSED</div>
+                <br/>
+                <img style="width:100%;" src="/img/pie.jpg"/>
+            </div>
+        </div>
+    </div>
+    <div class="welcome-footer">
+        <div class="hs-footer-left"><div class="year"></div> HelloSign</div>
+        <div class="hs-footer-right">This is a demo web application to show HelloSign API features, functionalities, and possibilities for your brand.</div>
+    </div>
+</div>
+
+<script>
+    var now = moment();
+    $('.welcome-content-top .datetime .date').html(now.format('MMMM DD'));
+    $('.welcome-footer .hs-footer-right .year').html(now.format('YYYY'));
+</script>

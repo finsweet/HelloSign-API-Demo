@@ -1,0 +1,353 @@
+<link rel="stylesheet" href="/css/prettybox.css" />
+<link rel="stylesheet" href="/css/index.css" />
+<link rel="stylesheet" href="/css/app-updated.css" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script type="text/javascript" src="https://s3.amazonaws.com/cdn.hellosign.com/public/js/hellosign-embedded.LATEST.min.js"></script>
+<script>
+    HelloSign.init("{{profile.client_id}}");
+
+    $(document).ready(function(){
+
+        $('.need-help').click(function(){
+
+            $('.need-help-dropdown').toggleClass('hidden-dropdown');
+
+            var icon = $(this).find('i');
+
+            if(icon.hasClass('fa-chevron-circle-right')){
+                icon.removeClass('fa-chevron-circle-right');
+                icon.addClass('fa-chevron-circle-down');
+            }else{
+                icon.removeClass('fa-chevron-circle-down');
+                icon.addClass('fa-chevron-circle-right  ');
+            }
+        })
+    })
+
+</script>
+
+<style>
+    .app-sidebar, .sidebar-logo, .sidebar-menu{
+        background: white !important;
+    }
+
+    .sidebar-copyright a{
+        color: {{profile.primaryColor}} !important;
+    }
+
+    .sidebar-copyright a:hover{
+        color: {{sidebarLinkColor}} !important;
+    }
+
+    .app-header{
+        background: {{profile.primaryColor}} !important;
+    }
+
+    .app-body {
+        background: #f6f6f6 !important;
+    }
+    /*
+        .app-body{
+            background: {{profile.contentBackground}} !important;
+    }
+*/
+
+    .btn{
+        background: {{profile.primaryColor}} !important;
+        color: white;
+    }
+    .form-control:focus {
+        border-color: {{profile.primaryColor}} !important;
+    }
+    .dropzone:hover{
+        border-color: {{profile.primaryColor}} !important;
+    }
+    .modal-content input:focus, .modal-content textarea:focus {
+        border-color: {{profile.primaryColor}} !important;
+    }
+    .addRole:hover {
+        border:dashed 2px {{profile.primaryColor}} !important;
+    }
+    .checkbox label i {
+        color: {{profile.primaryColor}} !important;
+    }
+
+
+    .whitelabel-primary-button {
+        background-color: {{profile.primaryColor}} !important;
+    }
+    .stats-line-break {
+        background-color: {{profile.primaryColor}} !important;
+    }
+
+    li.active {
+        background-color: {{profile.primaryRGBA}} !important;
+        border-left: solid 6px {{profile.primaryColor}} !important;
+        padding: 8px 0 8px;
+    }
+
+</style>
+
+<div class="row app-container">
+
+    <div class="logo-container" style="background: url('/{{profile.logo}}') no-repeat;">
+    </div>
+
+    <div class="row header">
+
+        <div class="app-header">
+            {{#if welcome}}
+                <div class="text-container">
+                    {{#if profile.company}}
+                        <div class="maintext">Welcome, <span style="font-family: 'ProximaNovaSBold', sans-serif;">{{profile.company}}</span></div>
+                    {{else}}
+                        <div class="maintext">Welcome!</div>
+                    {{/if}}
+                </div>
+            {{/if}}
+
+            {{#if dashboard}}
+                <div class="text-container">
+                    <div>
+                        <div class="maintext">Highlights</div>
+                        <div class="subtext">Dashboard View</div>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if embedded-templates}}
+                <div class="text-container">
+                    <div>
+                        <div class="maintext">Embedded Templates</div>
+                        <div class="subtext">Embedded Templates</div>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if non-embedded-requests}}
+                <div class="text-container">
+                    <div>
+                        <div class="maintext">Embedded Requesting</div>
+                        <div class="subtext">Non-Embedded Requests</div>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if from-template}}
+                <div class="text-container">
+                    <div>
+                        <div class="maintext">Embedded Requesting</div>
+                        <div class="subtext">From Template</div>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if status}}
+                <div class="text-container">
+                    <div>
+                        <div class="maintext">Embedded Requesting</div>
+                        <div class="subtext">Status of Requests</div>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if embedded-signing}}
+                <div class="text-container">
+                    <div>
+                        <div class="maintext">Embedded Signing</div>
+                        <div class="subtext">Embedded Signing</div>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if signer-reassignment}}
+                <div class="text-container">
+                    <div>
+                        <div class="maintext">Embedded Signing</div>
+                        <div class="subtext">Signer Reassignment</div>
+                    </div>
+                </div>
+            {{/if}}
+
+            {{#if merge-fields}}
+                <div class="text-container">
+                    <div>
+                        <div class="maintext">Merge Fields</div>
+                        <div class="subtext">Merge Fields</div>
+                    </div>
+                </div>
+            {{/if}}
+
+            <div class="need-help">Need Help?
+                <i class="fa fa-chevron-circle-right" aria-hidden="true" style="font-size:12px;margin-left:2px;"></i>
+            </div>
+            <div class="need-help-dropdown hidden-dropdown">
+                <div>Hey {{profile.company}}.</div>
+                <div>Need help? Have questions for us?</div>
+                <div>Email us at <a href="mailto:sales@hellosign.com">sales@hellosign.com</a></div>
+            </div>
+            <a class="header-more-info-button">{{profile.headerMoreInfo}}</a>
+        </div>
+
+    </div>
+
+    <div class="app-main">
+
+        <div class="menu-toggle">
+            <i class="fa fa-bars"></i>
+        </div>
+
+        <div class="app-sidebar">
+
+            <script>
+
+                manuallyCollapsed = false;
+
+                var button = $('.menu-toggle');
+                var menu = button.parent().find('.app-sidebar');
+                var smenu = button.parent().find('.sidebar-menu');
+
+                $(document).ready(function(){
+                    var width = $( window ).width();
+                    if(width<=991){
+                        menu.addClass('collapsed');
+                        smenu.addClass('collapsed');
+                        button.addClass('button-collapsed');
+                        $('.app-main').addClass('menu-collapsed');
+                        $('.app-body').addClass('menu-collapsed-body');
+                    }
+                });
+
+                $('.menu-toggle').click(function(){
+                    manuallyCollapsed=!manuallyCollapsed;
+                    menu.toggleClass('collapsed');
+                    smenu.toggleClass('collapsed');
+                    button.toggleClass('button-collapsed');
+                    $('.app-main').toggleClass('menu-collapsed');
+                    $('.app-body').toggleClass('menu-collapsed-body');
+                });
+
+                $( window ).resize(function() {
+                    var width = $( window ).width();
+                    if(width<=991){
+                        menu.addClass('collapsed');
+                        smenu.addClass('collapsed');
+                        button.addClass('button-collapsed');
+                        $('.app-main').addClass('menu-collapsed');
+                        $('.app-body').addClass('menu-collapsed-body');
+                    }else if(!manuallyCollapsed){
+                        menu.removeClass('collapsed');
+                        smenu.removeClass('collapsed');
+                        button.removeClass('button-collapsed');
+                        $('.app-main').removeClass('menu-collapsed');
+                        $('.app-body').removeClass('menu-collapsed-body');
+                    }
+                });
+
+
+
+
+            </script>
+
+            <div class="sidebar-menu">
+                <ul class="menu1" style="margin-bottom:-5px;">
+                    <li class="sidebar-title">
+                        <a class="menu-btn" href="/{{profile.url}}/welcome">WELCOME</a>
+                    </li>
+                    <ul class="menu3">
+                        <li class="{{#if welcome}}active{{/if}} sidebar-li"><a class="menu-btn sidebar-link" href="/{{profile.url}}/welcome">Requester View</a></li>
+                        <li class="{{#if from-template}}active{{/if}} sidebar-li"><a class="menu-btn sidebar-link" href="/{{profile.url}}/from-template">From Template</a></li>
+                    </ul>
+                </ul>
+                <br/>
+                <ul class="menu2">
+                    <li class="menu2-section">
+                        <a class="menu-btn sidebar-title" href="/{{profile.url}}/non-embedded-requests">
+                            Non-Embedded Requesting
+                        </a>
+                        <ul class="menu3">
+                            <li class="{{#if non-embedded-requests}}active{{/if}} sidebar-li"><a class="menu-btn sidebar-link" href="/{{profile.url}}/non-embedded-requests">Non-Embedded Requests</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="menu2">
+                    <li class="menu2-section">
+                        <a class="menu-btn sidebar-title" href="/{{profile.url}}/embedded-signing">
+                            Embedded Signing
+                        </a>
+                        <ul class="menu3">
+                            <li class="{{#if embedded-signing}}active{{/if}} sidebar-li"><a class="menu-btn sidebar-link" href="/{{profile.url}}/embedded-signing">Embedded Signing</a></li>
+                            <li class="{{#if signer-reassignment}}active{{/if}} sidebar-li"><a class="menu-btn sidebar-link" href="/{{profile.url}}/signer-reassignment">Signer Reassignment</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="menu2">
+                    <li class="menu2-section">
+                        <a class="menu-btn sidebar-title" href="/{{profile.url}}/embedded-templates">Embedded Templates</a>
+                        <ul class="menu3">
+                            <li class="{{#if embedded-templates}}active{{/if}} sidebar-li"><a class="menu-btn sidebar-link" href="/{{profile.url}}/embedded-templates">Embedded Templates</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="menu2">
+                    <li class="menu2-section">
+                        <a class="menu-btn sidebar-title" href="/{{profile.url}}/status">Highlights</a>
+                        <ul class="menu3">
+                            <!--<li class="{{#if status}}active{{/if}} sidebar-li"><a class="menu-btn sidebar-link" href="/{{profile.url}}/status">Status of Requests</a></li>-->
+                            <li class="{{#if merge-fields}}active{{/if}} sidebar-li"><a class="menu-btn sidebar-link" href="/{{profile.url}}/merge-fields">Merge Fields</a></li>
+                            <li class="{{#if dashboard}}active{{/if}} sidebar-li"><a class="menu-btn sidebar-link" href="/{{profile.url}}/dashboard">Dashboard View</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="sidebar-copyright" style="display:none;">
+                <a href="https://www.hellosign.com" target="_blank">© 2017 HelloSign Demo Dashboard</a>
+            </div>
+
+        </div>
+
+        <div class="row app-body">
+
+            {{#if welcome}}
+                {{>welcome}}
+            {{/if}}
+
+            {{#if dashboard}}
+                {{>dashboard}}
+            {{/if}}
+
+            {{#if embedded-templates}}
+                {{>embedded-templates}}
+            {{/if}}
+
+            {{#if non-embedded-requests}}
+                {{>non-embedded-requests}}
+            {{/if}}
+
+            {{#if from-template}}
+                {{>from-template}}
+            {{/if}}
+
+            {{#if status}}
+                {{>status}}
+            {{/if}}
+
+            {{#if embedded-signing}}
+                {{>embedded-signing}}
+            {{/if}}
+
+            {{#if signer-reassignment}}
+                {{>signer-reassignment}}
+            {{/if}}
+
+            {{#if merge-fields}}
+                {{>merge-fields}}
+            {{/if}}
+
+        </div>
+
+    </div>
+</div>
